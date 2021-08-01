@@ -1,17 +1,14 @@
-import { useState, useEffect } from "react";
-
-const ScoreBoard = (prop) => {
-const [score, setScore] = useState ("0");
+const ScoreBoard = (props) => {
 
 return (
     <div id ="score" className="scoreboard">
-        <div id="gameTitle" className="">Memory Matching Game</div>
+        <div id="gameTitle" className="">Heisig Kanji Memory Game</div>
         <div>
             <div id="score" className="">
-            Current Score:{}
+            Current Score:{props.score}
             </div>
             <div>
-            Best Score: {}
+            Best Score:{props.highScore}
             </div>
         </div>
     </div>

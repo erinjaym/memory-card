@@ -13,6 +13,9 @@ return (
         <img onClick={() => props.selectCard(6)} alt="flashcard7" src={flashCardArray[6].source} />
         <img onClick={() => props.selectCard(7)} alt="flashcard8" src={flashCardArray[7].source} />
         <img onClick={() => props.selectCard(8)} alt="flashcard9" src={flashCardArray[8].source} />
+        <img onClick={() => props.selectCard(9)} alt="flashcard9" src={flashCardArray[9].source} />
+        <img onClick={() => props.selectCard(10)} alt="flashcard9" src={flashCardArray[10].source} />
+        <img onClick={() => props.selectCard(10)} alt="flashcard9" src={flashCardArray[11].source} />
     </div>
 );
 } 

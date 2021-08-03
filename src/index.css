@@ -13,8 +13,7 @@ code {
 }
 
 .game-wrapper {
-background-color: aqua;
-border: 2px red solid;
+background-color: black;
 display: grid;
 grid-template-rows: 10vh 88vh;
 padding-left: 20px;
@@ -24,9 +23,8 @@ column-gap: 2px
 }
 
 .gameboard {
-border: 2px black solid;
 display: grid;
-grid-template-columns: auto auto auto;
+grid-template-columns: auto auto auto auto;
 grid-template-rows: auto auto auto;
 width: 95vw;
 height: 80vh;
@@ -34,6 +32,22 @@ height: 80vh;
 
 .scoreboard {
 border: 2px pink solid;
+color: white;
 display: grid;
 grid-template-columns: 1fr 1fr;
+}
+
+img:hover {
+  border:green 2px solid;
+}
+
+.title {
+color: green;
+font-size: 2em;
+font-weight: bold;
+text-decoration: underline;
+}
+
+.score{
+font-size: 1.5em;
 }

@@ -1,40 +1,18 @@
-import { useState, useEffect } from "react";
 
 const GameBoard = (props)  => { 
-    const [flashCardArray, setFlashCardArray] = useState (props.flashCardList);
-
-    useEffect (() => {
-
-    });
-
-    function Randomizer () {
-        let min = Math.ceil(9);
-        let max = Math.floor(1);
-        return Math.floor(Math.random() * (max - min +1) + min);
-    }
-
-
-    function shiftCards () {
-        let shiftBy = Randomizer();
-        for (let shiftTimes = 0; shiftTimes < shiftBy; shiftTimes ++){
-            flashCardArray.unshift(flashCardArray[3]);
-            flashCardArray.pop();
-        }
-    }
-  
-  
+    let flashCardArray = (props.flashCardList);
 
 return (
     <div id="gameboard" className="gameboard">
-        <div id="0"><img src={flashCardArray[0].source} /></div>
-        <div id="1"><img src={flashCardArray[1].source} /></div>
-        <div id="2"><img src={flashCardArray[2].source} /></div>
-        <div id="3"><img src={flashCardArray[3].source} /></div>
-        <div id="4"><img src={flashCardArray[4].source} /></div>
-        <div id="5"><img src={flashCardArray[5].source} /></div>
-        <div id="6"><img src={flashCardArray[6].source} /></div>
-        <div id="7"><img src={flashCardArray[7].source} /></div>
-        <div id="8"><img src={flashCardArray[8].source} /></div>
+        <img onClick={() => props.selectCard(0)} alt="flashcard1" src={flashCardArray[0].source} />
+        <img onClick={() => props.selectCard(1)} alt="flashcard2" src={flashCardArray[1].source} />
+        <img onClick={() => props.selectCard(2)} alt="flashcard3" src={flashCardArray[2].source} />
+        <img onClick={() => props.selectCard(3)} alt="flashcard4" src={flashCardArray[3].source} />
+        <img onClick={() => props.selectCard(4)} alt="flashcard5" src={flashCardArray[4].source} />
+        <img onClick={() => props.selectCard(5)} alt="flashcard6" src={flashCardArray[5].source} />
+        <img onClick={() => props.selectCard(6)} alt="flashcard7" src={flashCardArray[6].source} />
+        <img onClick={() => props.selectCard(7)} alt="flashcard8" src={flashCardArray[7].source} />
+        <img onClick={() => props.selectCard(8)} alt="flashcard9" src={flashCardArray[8].source} />
     </div>
 );
 } 

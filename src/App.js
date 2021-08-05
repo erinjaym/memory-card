@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import GameBoard from "./component/GameBoard";
 import ScoreBoard from "./component/ScoreBoard";
 import FlashCardData from "./component/FlashCardData";
+import GameLossWindow from "./component/GameLossWindow";
 
 function App() {
 
@@ -47,7 +48,7 @@ function shiftCards () {
 }
 
 const selectCard = (cardId) => {
-  if (flashCards.[cardId].selected){
+  if (flashCards.[cardId].selected) {
     return false;
   }else {
     let flashCardsNew = flashCards;
@@ -63,17 +64,34 @@ const decideSelectionResults = (arrayId) => {
     shiftCards();
     return console.log('did eet');
   }else {
-    alert('残念 YOU ALREADY SELECTED THAT ONE!');
-    gameReset();
+    showGameLossPopUp();
   }
 }
 
+const showGameLossPopUp = () => {
+  let GameLossPopUp = document.getElementById("gameEndPopup");
+  GameLossPopUp.style.display= "grid";
+}
+
+const hideGameLossPopUp = () => {
+  let GameLossPopUp = document.getElementById("gameEndPopup");
+  GameLossPopUp.style.display= "none";
+}
+
+const endGame = () => {
+  hideGameLossPopUp();
+  gameReset(); 
+}
+
   return (
+  <div>
     <div id="game-wrapper" className="game-wrapper">
       <ScoreBoard score={score} highScore={highScore}/>
       <GameBoard flashCardList={flashCards} selectCard={decideSelectionResults}
       /> 
+      <GameLossWindow score={score} highScore={highScore} endGame={endGame}/>
     </div>
+  </div>
   );
 
 }

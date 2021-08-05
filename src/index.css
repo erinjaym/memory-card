@@ -31,7 +31,7 @@ height: 80vh;
 }
 
 .scoreboard {
-border: 2px pink solid;
+border-bottom: 2px rgb(205, 255, 192) solid;
 color: white;
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -50,4 +50,28 @@ text-decoration: underline;
 
 .score{
 font-size: 1.5em;
+}
+
+.game-end-popup {
+align-items: center;
+background-color: black;
+border: green solid 2px;
+color: white;
+display: none;
+height: 40vh;
+justify-items: center;
+position: absolute;
+width: 40vw;
+top: 50%;
+left: 50%;
+z-index: 3;
+transform: translate(-20vw, -20vh);
+font-size: 1.5em;
+}
+
+button {
+background-color: green;
+color: white;
+text-align: center;
+padding: 5px;
 }

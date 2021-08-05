@@ -10,7 +10,6 @@ const [score, setScore] = useState (0);
 const [highScore, setHighScore] = useState (0);
 const [flashCards, setFlashCards] = useState (FlashCardData);
 
-
 useEffect (() => {
   const setTheHighScore = () => {
     if (highScore < score){
@@ -31,13 +30,13 @@ const addPoints = () => {
   setScore (score + 1);
 }
 
-function randomNumberPicker () {
+const randomNumberPicker = () => {
   let min = Math.ceil(9);
   let max = Math.floor(1);
   return Math.floor(Math.random() * (max - min +1) + min);
 }
 
-function shiftCards () {
+const shiftCards = () => {
   let shiftBy = randomNumberPicker();
   let flashCardArray = flashCards;
   for (let shiftTimes = 0; shiftTimes < shiftBy; shiftTimes ++){
@@ -48,7 +47,7 @@ function shiftCards () {
 }
 
 const selectCard = (cardId) => {
-  if (flashCards.[cardId].selected) {
+  if ((flashCards.[cardId].selected)) {
     return false;
   }else {
     let flashCardsNew = flashCards;
@@ -71,11 +70,15 @@ const decideSelectionResults = (arrayId) => {
 const showGameLossPopUp = () => {
   let GameLossPopUp = document.getElementById("gameEndPopup");
   GameLossPopUp.style.display= "grid";
+    let blurBackground = document.getElementById("gameboard");
+    blurBackground.className = "gameboard-blur";
 }
 
 const hideGameLossPopUp = () => {
   let GameLossPopUp = document.getElementById("gameEndPopup");
   GameLossPopUp.style.display= "none";
+  let unblurBackground = document.getElementById("gameboard");
+  unblurBackground.className = "gameboard";
 }
 
 const endGame = () => {
@@ -84,14 +87,12 @@ const endGame = () => {
 }
 
   return (
-  <div>
     <div id="game-wrapper" className="game-wrapper">
       <ScoreBoard score={score} highScore={highScore}/>
       <GameBoard flashCardList={flashCards} selectCard={decideSelectionResults}
       /> 
       <GameLossWindow score={score} highScore={highScore} endGame={endGame}/>
     </div>
-  </div>
   );
 
 }

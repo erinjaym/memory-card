@@ -1,4 +1,3 @@
-
 const GameBoard = (props)  => { 
     let flashCardArray = (props.flashCardList);
 

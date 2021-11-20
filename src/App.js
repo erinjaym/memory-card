@@ -61,7 +61,7 @@ const decideSelectionResults = (arrayId) => {
   if (selectCard(arrayId)){
     addPoints();
     shiftCards();
-    return console.log('did eet');
+    return;
   }else {
     showGameLossPopUp();
   }
